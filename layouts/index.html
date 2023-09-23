@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <title>Home | {{ .Site.Params.author }}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .contain {
+        display: inline-block;
+      }
+
+      .typewriter {
+        top: 50%;
+        overflow: hidden;
+        border-right: 0.15em solid orange;
+        white-space: nowrap;
+        animation: typing 2s steps(40, end) forwards, blink 0.8s infinite;
+        font-size: 1rem;
+        width: 0;
+      }
+
+      .typewriter p {
+        margin: 0;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        from {
+          border-color: transparent;
+        }
+        to {
+          border-color: orange;
+        }
+      }
+    </style>
+
+    {{ partial "head.html" . }}
+  </head>
+
+  <body>
+    <div class="flexWrapper">
+      {{ partial "header.html" . }}
+
+      <div class="content vertical">
+        <main class="main">
+          <img
+            src="/bg.jpg"
+            alt="Image"
+            style="
+              height: auto;
+              max-width: 100%;
+              border-radius: 17px;
+              border: none;
+              display: block;
+            "
+          />
+          <div class="indexWrapper" style="text-align: center">
+            <div>
+              <h1 class="indexHeader">{{ .Site.Params.author }}</h1>
+            </div>
+          </div>
+          <div class="contain" style="width: 223px">
+            <div class="typewriter" style="width: 225px; position: ">
+              Welcome to my personal site!
+            </div>
+          </div>
+
+          {{ if isset .Site.Params "social" }} {{ partial "social.html" . }} {{
+          end }}
+        </main>
+      </div>
+
+      {{ partial "footer.html" . }}
+    </div>
+  </body>
+</html>
